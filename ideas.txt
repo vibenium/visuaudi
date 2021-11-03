@@ -1,0 +1,7 @@
+#1 => With a visual to audio converter, this program will have to look at each
+individual pixel's RGB value and decide how to interpret it as an audio signal.
+I think in order for this to work in a reasonable way for most pictures is to
+use a technique called "sample and hold". In other words, instead of treating
+each individual (x, y) pixel as one audio sameple, that sample will be "held"
+for a longer period of time per pixel. To avoid bit crushing, we could also 
+apply smoothing from pixel-start audio sample, to pixel-end audio sample.
