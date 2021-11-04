@@ -1,0 +1,11 @@
+Introduction: 
+	visaudi is a cli that converts an image file to a wav file.
+
+Background:
+	Image to wav file conversion is achieved through creating
+	a linear array containing the averaged RGB values per pixel.
+	This new array will then be stretched and smoothed depending 
+	on how long the audio file is desired to be (in seconds) by
+	the argument provided by the user. Then that newly defined
+	array will be converted into an audio signal in a .wav
+	format. 
