@@ -5,3 +5,8 @@ use a technique called "sample and hold". In other words, instead of treating
 each individual (x, y) pixel as one audio sameple, that sample will be "held"
 for a longer period of time per pixel. To avoid bit crushing, we could also 
 apply smoothing from pixel-start audio sample, to pixel-end audio sample.
+
+#2 => Things to consider: There are a few things that would need to be addressed
+	* The image file to perform the conversions
+	* The length of the audio to be played back
+	* what to name the audio upon creation
