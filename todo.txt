@@ -1,0 +1,10 @@
+TODO
+
+DONE 1) open the image
+DONE 2) get pixel rgb values
+DONE 3) average RGB and put in 1d array
+4) Get image name to be taken from command line
+5) Write tests for image opening and array creation
+   - Use different folder depths
+6) Scale factor for the array
+7) audio
