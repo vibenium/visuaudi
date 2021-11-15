@@ -10,6 +10,7 @@ fn main() {
 	// Example: visuaudi pic.jpg 3.2 new_audio.wav
 	// If these 3 are not specified, then fail.
 
-    let vec = pixel_utils::img_to_vec(String::from("ImageFiles/287585.jpg"));
-    println!("{}", vec.unwrap().len());
+    let avg_imgs = pixel_utils::img_to_vec(String::from("ImageFiles/287585.jpg"));
+    // println!("{}", vec.unwrap().len());
+    audio_utils::make_wave(avg_imgs.unwrap(), String::from("GIVE ME A NAME"));
 }

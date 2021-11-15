@@ -6,6 +6,8 @@ mod test {
     use image::io::Reader;
     use std::path::Path;
     // use image::ImageFormat;
+    use image::ImageBuffer;
+
     #[test]
     fn it_works() {
         assert!(true);

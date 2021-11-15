@@ -10,3 +10,4 @@ apply smoothing from pixel-start audio sample, to pixel-end audio sample.
 	* The image file to perform the conversions
 	* The length of the audio to be played back
 	* what to name the audio upon creation
+#3 => Apply a window function to the audio signal

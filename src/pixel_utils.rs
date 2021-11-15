@@ -1,6 +1,6 @@
 use image::open;
 
-pub fn img_to_vec(path: String) -> Result<Vec<u16>, &'static str> {
+pub fn img_to_vec(path: String) -> Result<Vec<f32>, &'static str> {
 
     let file = match image::open(path) {
         Ok(r) => Some(r),
@@ -13,12 +13,13 @@ pub fn img_to_vec(path: String) -> Result<Vec<u16>, &'static str> {
         let rgb = file.unwrap().into_rgba();
         let pixels = rgb.pixels();
 
-        let mut avg_pixels: Vec<u16> = Vec::with_capacity(pixels.len());
+        let mut avg_pixels: Vec<f32> = Vec::with_capacity(pixels.len());
         for px in pixels {
-            let r: u16 = px[0] as u16;
-            let g: u16 = px[1] as u16;
-            let b: u16 = px[1] as u16;
-            avg_pixels.push((r + g + b) / 3);
+            let r = px[0] as f32;
+            let g = px[1] as f32;
+            let b = px[1] as f32;
+            let avg: f32 = (r + g + b) / 3.0;
+            avg_pixels.push((avg * (2.0/255.0) -1.0));
         }
 
         println!("{}", avg_pixels.len());
