@@ -22,7 +22,7 @@ pub fn img_to_vec(path: String) -> Result<Vec<f32>, &'static str> {
             avg_pixels.push((avg * (2.0/255.0) -1.0));
         }
 
-        println!("{}", avg_pixels.len());
+        // println!("{}", avg_pixels.len());
         return Ok(avg_pixels);
     }
 }
