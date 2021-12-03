@@ -34,7 +34,7 @@ fn mvn_avg_filt(num_points: usize, input_vec: &[f32]) -> Option<Vec<f32>> {
     return None;
 }
 
-pub fn img_to_vec(path: String) -> Result<Vec<f32>, &'static str> {
+pub fn img_to_vec(path: String, num_pts: Option<String>) -> Result<Vec<f32>, &'static str> {
 
     let file = match image::open(path) {
         Ok(r) => Some(r),
@@ -55,11 +55,25 @@ pub fn img_to_vec(path: String) -> Result<Vec<f32>, &'static str> {
             let avg: f32 = (r + g + b) / 3.0;
             avg_pixels.push((avg * (2.0/255.0) -1.0));
         }
+        
+        if let Some(s) = num_pts { // Apply filter
+            if let Ok(num) = s.parse::<usize>() { // Convert String to usize
+                match mvn_avg_filt(num, avg_pixels.as_slice()) {
+                    Some(filtered_data) => Ok(filtered_data),
+                    None => Err("Error: Moving average filter failed"),
+                }
+            } else {
+                Err("Error: Failed to parse num_points parameter as usize")
+            }
+        } else { // Return unfiltered data
+            Ok(avg_pixels) 
+        }
+        /*
         let filtered_data = mvn_avg_filt(4, avg_pixels.as_slice());
         match filtered_data {
             Some(fd) => Ok(fd),
             None => Err("Image filtered failed"),
-        }
+        }*/
         // println!("{}", avg_pixels.len());
         //return Ok(avg_pixels);
     }

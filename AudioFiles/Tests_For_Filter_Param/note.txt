@@ -1,0 +1,1 @@
+These files contained inside this folder are the same image to audio output, except they have different --pts arguments. For instance 338559_np8.wav has the num_points set to 8 for the moving average filter to apply to the image.
