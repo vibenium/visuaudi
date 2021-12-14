@@ -41,7 +41,7 @@ fn main() {
                     audio_utils::make_wave(avg_imgs.unwrap(), new_name);
                 } else {
                     // Wave name just takes the name of the file given with .wav extension
-                    todo!();
+                    eprintln!("Error: Must provide a name for the audio file");
                 }
             } else {
                 eprintln!("Error: Invalid picture given")
